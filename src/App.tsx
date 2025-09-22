@@ -9,6 +9,7 @@ import { VoiceSymptomChecker } from './components/VoiceSymptomChecker';
 import { PatientDashboard } from './components/PatientDashboard';
 import { HospitalDashboard } from './components/HospitalDashboard';
 import { LanguageSelector } from './components/LanguageSelector';
+import { OfflineIndicator } from './components/OfflineIndicator';
 import { Patient } from './types';
 import { offlineStorage } from './services/offlineStorage';
 import { voiceService } from './services/voiceService';
@@ -229,17 +230,7 @@ function App() {
       </main>
 
       {/* Status Bar */}
-      <div className="fixed bottom-4 right-4">
-        <div className="bg-white rounded-lg shadow-lg p-3 flex items-center space-x-3 border border-gray-200">
-          <div className={`w-2 h-2 rounded-full ${isOffline ? 'bg-amber-500' : 'bg-green-500'}`}></div>
-          <span className="text-sm text-gray-600">
-            {isOffline 
-              ? (currentLanguage === 'pa' ? 'ਔਫਲਾਈਨ ਮੋਡ' : 'Offline Mode')
-              : (currentLanguage === 'pa' ? 'ਔਨਲਾਈਨ' : 'Online')
-            } | {patients.length} {currentLanguage === 'pa' ? 'ਮਰੀਜ਼' : 'patients'}
-          </span>
-        </div>
-      </div>
+      <OfflineIndicator language={currentLanguage} />
     </div>
   );
 }
