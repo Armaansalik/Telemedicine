@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, WifiOff, Sync, Database, HardDrive } from 'lucide-react';
+import { Wifi, WifiOff, FolderSync as Sync, Database, HardDrive } from 'lucide-react';
 import { offlineStorage } from '../services/offlineStorage';
 
 interface OfflineIndicatorProps {
